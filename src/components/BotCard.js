@@ -1,5 +1,19 @@
 import React from "react";
 
+function BotCard(props) {
+  const { bot, action } = props // when we use "bot" we are referring to bot inside of props
+
+
+  function handleClick() {
+      console.log("Card clicked!")
+      action(bot) //This is going to be a prop.
+  }
+
+
+
+
+
+
 const botTypeClasses = {
   Assault: "icon military",
   Defender: "icon shield",
@@ -9,13 +23,12 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
-const BotCard = props => {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={handleClick}
       >
         <div className="image">
           <img alt="oh no!" src={props.bot.avatar_url} />
@@ -61,4 +74,4 @@ const BotCard = props => {
   );
 };
 
-export default BotCard;
+export default BotCard
